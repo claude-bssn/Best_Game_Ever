@@ -21,7 +21,7 @@ function preload ()
 
 function create ()
 {
-    this.add.image(100,50,'bottle');
+    this.add.image(100,50,'bottle').setScale(0.2);
     bottle = this.physics.add.group({
         key: 'bottle',
         repeat: 5,
