@@ -22,11 +22,11 @@ function preload ()
 function create ()
 {
     this.add.image(100,50,'bottle');
-  bottle = this.physics.add.group({
-      key: 'bottle',
-      repeat: 5,
-      setXY: { x: 1200, y: 0, stepX: 70 }
-  });
+    bottle = this.physics.add.group({
+        key: 'bottle',
+        repeat: 5,
+        setXY: { x: 1200, y: 0, stepX: 70 }
+    });
 
 //   bottle.children.iterate(function (child) {
 
