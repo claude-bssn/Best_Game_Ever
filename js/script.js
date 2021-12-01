@@ -18,60 +18,86 @@ function preload ()
     this.load.image('lighter', '../public/img/items/lighter.png');
     this.load.image('tissue', '../public/img/items/tissue.png');
 }
+var score = 0;
 
-function create ()
-{
-    // this.add.image(100,50,'bottle').setScale(0.2);
-    bottle=this.physics.add.group({
-        key: 'bottle',
-        repeat: 5,
-        setXY: { x: 100, y: 50, stepXY: 10}
+var bottle;
+var scoreText;
+var bombs;
+
+function create () {
+    // platforms = this.physics.add.staticGroup();
+
+    
+    // platforms.create(400, 568, "ground").setScale(2).refreshBody();
+    // platforms.create(600, 400, "ground");
+    // platforms.create(70, 250, "ground");
+    // platforms.create(650, 250, "ground");
+
+    
+    // player.setBounce(0.2);
+    
+    // player.setCollideWorldBounds(true);
+    // player.body.setGravityY(300); 
+
+    
+    // this.physics.add.collider(player, platforms);
+
+    bottle = this.physics.add.group({
+        key: "bottle",
+        repeat: 11, 
+        setXY: { x: 12, y: 0, stepX: 70 } 
     });
 
-  bottle.children.iterate(function (child) {
+    bottle.children.iterate(function (child) {
+        
+        child.setBounceY(Phaser.Math.FloatBetween(0.1, 0.3));
+    });
 
-      child.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8));
+    this.physics.add.collider(bottle, platforms);
 
-  });
-
-//   kerosen = this.physics.add.group({
-//       key: 'kerosen',
-//       repeat: 1,
-//       setXY: { x: 12, y: 0, stepX: 70 }
-//   });
-
-//   kerosen.children.iterate(function (child) {
-
-//       child.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8));
-//   });
-
-//   lighter = this.physics.add.group({
-//       key: 'lighter',
-//       repeat: 1,
-//       setXY: { x: 12, y: 0, stepX: 70 }
-//   });
-
-//   lighter.children.iterate(function (child) {
-//       child.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8));
-//   });
-
-//   tissue = this.physics.add.group({
-//       key: 'tissue',
-//       repeat: 1,
-//       setXY: { x: 12, y: 0, stepX: 70 }
-//   });
+    this.physics.add.overlap(player, bottle, collectbottle, null, this);
 
 
-//   tissue.children.iterate(function (child) {
+    scoreText = this.add.text(16, 16, "Score: 0", {fontSize: "32px", fill: "#000"});
 
-//       child.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8));
-
-//   });
-
-
-
+    cursors = this.input.keyboard.createCursorKeys();
 }
 
-function update ()
-{
+function update () {
+    if (cursors.left.isDown) {
+        player.setVelocityX(-160); 
+        player.anims.play("left", true); 
+    }
+    else if (cursors.right.isDown) {
+        player.setVelocityX(160);
+        player.anims.play("right", true);
+    }
+    else {
+        player.setVelocityX(0);
+        player.anims.play("turn");
+    }
+
+    if ((cursors.up.isDown || cursors.space.isDown) && player.body.touching.down) {
+        player.setVelocityY(-500); 
+    }
 }
+
+function collectbottle(player, bottle) {
+
+    bottle.disableBody(true, true);
+
+    score += 10;
+    scoreText.setText("Score: " + score);
+
+    return score;
+}
+
+function gameOver(scrore){
+    if(score>50){
+        window.location.href = "../victory.html"
+    }else {
+        window.location.href = "../lost.html"
+    }
+}
+
+
