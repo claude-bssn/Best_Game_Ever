@@ -33,7 +33,8 @@ function create ()
     this.add.image(100, 50, 'scoreBoard').setScale(0.45);
     this.add.image(370, 50, 'emptyLife').setScale(0.45);
     this.add.image(390, 50, 'life').setScale(0.45);
-    this.add.image(680, 50, 'start').setScale(0.35);
+    //à acctiver quand on met le jeu en pause
+    //this.add.image(680, 50, 'start').setScale(0.35);
     this.add.image(680, 50, 'pause').setScale(0.35);
     this.add.image(750, 50, 'exit').setScale(0.35);
     this.add.image(400, 550, 'itemBar').setScale(0.47);
@@ -49,3 +50,4 @@ function create ()
 function update ()
 {
 }
+
