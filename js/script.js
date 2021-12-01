@@ -13,23 +13,18 @@ var game = new Phaser.Game(config);
 
 function preload ()
 {
-    this.load.image('bottle', 'public/img/items/bottle.png');
-    this.load.image('kerosen', 'public/img/items/kerosen.png');
-    this.load.image('lighter', 'public/img/items/lighter.png');
-    this.load.image('tissue', 'public/img/items/tissue.png');
+    this.load.image('bottle', '../public/img/items/bottle.png');
+    this.load.image('kerosen', '../public/img/items/kerosen.png');
+    this.load.image('lighter', '../public/img/items/lighter.png');
+    this.load.image('tissue', '../public/img/items/tissue.png');
 }
 
 function create ()
 {
-}
-
-function update ()
-{
-}
 
 bottle = this.physics.add.group({
     key: 'bottle',
-    repeat: 1,
+    repeat: 11,
     setXY: { x: 12, y: 0, stepX: 70 }
 });
 
@@ -41,7 +36,7 @@ bottle.children.iterate(function (child) {
 
 kerosen = this.physics.add.group({
     key: 'kerosen',
-    repeat: 1,
+    repeat: 11,
     setXY: { x: 12, y: 0, stepX: 70 }
 });
 
@@ -52,7 +47,7 @@ kerosen.children.iterate(function (child) {
 });
 lighter = this.physics.add.group({
     key: 'lighter',
-    repeat: 1,
+    repeat: 11,
     setXY: { x: 12, y: 0, stepX: 70 }
 });
 
@@ -63,7 +58,7 @@ lighter.children.iterate(function (child) {
 });
 tissue = this.physics.add.group({
     key: 'tissue',
-    repeat: 1,
+    repeat: 11,
     setXY: { x: 12, y: 0, stepX: 70 }
 });
 
@@ -72,3 +67,9 @@ tissue.children.iterate(function (child) {
     child.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8));
 
 });
+
+}
+
+function update ()
+{
+}
