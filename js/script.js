@@ -25,18 +25,61 @@ var scoreText;
 var bombs;
 
 function create () {
+
+  this.add.image('kerosen', '../public/img/items/kerosen.png');
+  this.add.image('bottle', '../public/img/items/bottle.png');
+  this.add.image('lighter', '../public/img/items/lighter.png');
+  this.add.image('tissue', '../public/img/items/tissue.png');
    kerosen = this.physics.add.group({
         key: "kerosen", 
         repeat: 11, 
         setXY: { x: 12, y: 0, stepX: 70 } 
     });
 
-    bottle.children.iterate(function (child) {
+    kerosen.children.iterate(function (child) {
 
         child.setBounceY(Phaser.Math.FloatBetween(0.1, 0.3));
     });
 
+
+     bottle = this.physics.add.group({
+          key: "bottle", 
+          repeat: 11, 
+          setXY: { x: 12, y: 0, stepX: 70 } 
+      });
+
+      bottle.children.iterate(function (child) {
+
+          child.setBounceY(Phaser.Math.FloatBetween(0.1, 0.3));
+      });
+
+      tissue = this.physics.add.group({
+           key: "tissue", 
+           repeat: 11, 
+           setXY: { x: 12, y: 0, stepX: 70 } 
+       });
+
+       tissue.children.iterate(function (child) {
+
+           child.setBounceY(Phaser.Math.FloatBetween(0.1, 0.3));
+       });
+
+       lighter = this.physics.add.group({
+            key: "lighter", 
+            repeat: 11, 
+            setXY: { x: 12, y: 0, stepX: 70 } 
+        });
+
+        lighter.children.iterate(function (child) {
+
+            child.setBounceY(Phaser.Math.FloatBetween(0.1, 0.3));
+        });
+
     this.physics.add.collider(bottle, platforms);
+    this.physics.add.collider(kerosen, platforms);
+    this.physics.add.collider(tissue, platforms);
+    this.physics.add.collider(lighter, platforms);
+
 
     this.physics.add.overlap(player, bottle, collectbottle, null, this);
 
