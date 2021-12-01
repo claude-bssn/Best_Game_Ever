@@ -51,7 +51,7 @@ kerosen.children.iterate(function (child) {
 
 });
 lighter = this.physics.add.group({
-    key: 'bottle',
+    key: 'lighter',
     repeat: 11,
     setXY: { x: 12, y: 0, stepX: 70 }
 });
@@ -62,7 +62,7 @@ lighter.children.iterate(function (child) {
 
 });
 tissue = this.physics.add.group({
-    key: 'bottle',
+    key: 'tissue',
     repeat: 11,
     setXY: { x: 12, y: 0, stepX: 70 }
 });
