@@ -13,10 +13,12 @@ var game = new Phaser.Game(config);
 
 function preload ()
 {
+    this.load.image('Window', '../public/ath/Windows.png');
 }
 
 function create ()
 {
+    this.add.image(400, 300, 'Window');
 }
 
 function update ()
