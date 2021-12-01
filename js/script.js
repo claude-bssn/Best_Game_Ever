@@ -17,10 +17,7 @@ function preload ()
     this.load.image('kerosen', '../public/img/items/kerosen.png');
     this.load.image('lighter', '../public/img/items/lighter.png');
     this.load.image('tissue', '../public/img/items/tissue.png');
-    this.add.image('bottle', '../public/img/items/bottle.png');
-    this.add.image('kerosen', '../public/img/items/kerosen.png');
-    this.add.image('lighter', '../public/img/items/lighter.png');
-    this.add.image('tissue', '../public/img/items/tissue.png');
+
 }
 var score = 0;
 
@@ -29,18 +26,71 @@ var scoreText;
 var bombs;
 
 function create () {
+
+  this.add.image('kerosen', '../public/img/items/kerosen.png');
+  this.add.image('bottle', '../public/img/items/bottle.png');
+  this.add.image('lighter', '../public/img/items/lighter.png');
+  this.add.image('tissue', '../public/img/items/tissue.png');
    kerosen = this.physics.add.group({
         key: "kerosen", // използваме изображението на звездата
         repeat: 11, // създаваме 12 обекта (имаме създаден 1 автоматично)
         setXY: { x: 12, y: 0, stepX: 70 } // първия обект ще бъде сложен на (12, 0), а всеки следващ ще промени хоризонталната си позиция със 70 пиксела
     });
 
-    bottle.children.iterate(function (child) {
+    kerosen.children.iterate(function (child) {
 
         child.setBounceY(Phaser.Math.FloatBetween(0.1, 0.3));
     });
 
+    kerosen = this.physics.add.group({
+         key: "kerosen", // използваме изображението на звездата
+         repeat: 11, // създаваме 12 обекта (имаме създаден 1 автоматично)
+         setXY: { x: 12, y: 0, stepX: 70 } // първия обект ще бъде сложен на (12, 0), а всеки следващ ще промени хоризонталната си позиция със 70 пиксела
+     });
+
+     kerosen.children.iterate(function (child) {
+
+         child.setBounceY(Phaser.Math.FloatBetween(0.1, 0.3));
+     });
+
+     bottle = this.physics.add.group({
+          key: "bottle", // използваме изображението на звездата
+          repeat: 11, // създаваме 12 обекта (имаме създаден 1 автоматично)
+          setXY: { x: 12, y: 0, stepX: 70 } // първия обект ще бъде сложен на (12, 0), а всеки следващ ще промени хоризонталната си позиция със 70 пиксела
+      });
+
+      bottle.children.iterate(function (child) {
+
+          child.setBounceY(Phaser.Math.FloatBetween(0.1, 0.3));
+      });
+
+      tissue = this.physics.add.group({
+           key: "tissue", // използваме изображението на звездата
+           repeat: 11, // създаваме 12 обекта (имаме създаден 1 автоматично)
+           setXY: { x: 12, y: 0, stepX: 70 } // първия обект ще бъде сложен на (12, 0), а всеки следващ ще промени хоризонталната си позиция със 70 пиксела
+       });
+
+       tissue.children.iterate(function (child) {
+
+           child.setBounceY(Phaser.Math.FloatBetween(0.1, 0.3));
+       });
+
+       lighter = this.physics.add.group({
+            key: "lighter", // използваме изображението на звездата
+            repeat: 11, // създаваме 12 обекта (имаме създаден 1 автоматично)
+            setXY: { x: 12, y: 0, stepX: 70 } // първия обект ще бъде сложен на (12, 0), а всеки следващ ще промени хоризонталната си позиция със 70 пиксела
+        });
+
+        lighter.children.iterate(function (child) {
+
+            child.setBounceY(Phaser.Math.FloatBetween(0.1, 0.3));
+        });
+
     this.physics.add.collider(bottle, platforms);
+    this.physics.add.collider(kerosen, platforms);
+    this.physics.add.collider(tissue, platforms);
+    this.physics.add.collider(lighter, platforms);
+
 
     this.physics.add.overlap(player, bottle, collectbottle, null, this);
 
