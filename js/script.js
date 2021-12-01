@@ -83,7 +83,6 @@ function create () {
 
     this.physics.add.overlap(player, bottle, collectbottle, null, this);
 
-
     scoreText = this.add.text(16, 16, "Score: 0", {fontSize: "32px", fill: "#000"});
 
     cursors = this.input.keyboard.createCursorKeys();
