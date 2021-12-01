@@ -13,12 +13,16 @@ var game = new Phaser.Game(config);
 
 function preload ()
 {
-    this.load.image('Window', '../public/ath/Windows.png');
+    this.load.image('scoreBoard', '../public/ath/scoreBoard.png');
+    this.load.image('emptyLife', '../public/ath/EmptyLifeBar.png');
+    this.load.image('life', '../public/ath/Life.png');
 }
 
 function create ()
 {
-    this.add.image(400, 300, 'Window');
+    this.add.image(100, 50, 'scoreBoard');
+    this.add.image(400, 50, 'emptyLife');
+    this.add.image(435, 50, 'life');
 }
 
 function update ()
