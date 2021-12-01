@@ -17,6 +17,10 @@ function preload ()
     this.load.image('kerosen', '../public/img/items/kerosen.png');
     this.load.image('lighter', '../public/img/items/lighter.png');
     this.load.image('tissue', '../public/img/items/tissue.png');
+    this.add.image('bottle', '../public/img/items/bottle.png');
+    this.add.image('kerosen', '../public/img/items/kerosen.png');
+    this.add.image('lighter', '../public/img/items/lighter.png');
+    this.add.image('tissue', '../public/img/items/tissue.png');
 }
 var score = 0;
 
@@ -25,31 +29,14 @@ var scoreText;
 var bombs;
 
 function create () {
-    // platforms = this.physics.add.staticGroup();
-
-    
-    // platforms.create(400, 568, "ground").setScale(2).refreshBody();
-    // platforms.create(600, 400, "ground");
-    // platforms.create(70, 250, "ground");
-    // platforms.create(650, 250, "ground");
-
-    
-    // player.setBounce(0.2);
-    
-    // player.setCollideWorldBounds(true);
-    // player.body.setGravityY(300); 
-
-    
-    // this.physics.add.collider(player, platforms);
-
-    bottle = this.physics.add.group({
-        key: "bottle",
-        repeat: 11, 
-        setXY: { x: 12, y: 0, stepX: 70 } 
+   kerosen = this.physics.add.group({
+        key: "kerosen", // използваме изображението на звездата
+        repeat: 11, // създаваме 12 обекта (имаме създаден 1 автоматично)
+        setXY: { x: 12, y: 0, stepX: 70 } // първия обект ще бъде сложен на (12, 0), а всеки следващ ще промени хоризонталната си позиция със 70 пиксела
     });
 
     bottle.children.iterate(function (child) {
-        
+
         child.setBounceY(Phaser.Math.FloatBetween(0.1, 0.3));
     });
 
@@ -65,8 +52,8 @@ function create () {
 
 function update () {
     if (cursors.left.isDown) {
-        player.setVelocityX(-160); 
-        player.anims.play("left", true); 
+        player.setVelocityX(-160);
+        player.anims.play("left", true);
     }
     else if (cursors.right.isDown) {
         player.setVelocityX(160);
@@ -78,7 +65,7 @@ function update () {
     }
 
     if ((cursors.up.isDown || cursors.space.isDown) && player.body.touching.down) {
-        player.setVelocityY(-500); 
+        player.setVelocityY(-500);
     }
 }
 
@@ -99,5 +86,3 @@ function gameOver(scrore){
         window.location.href = "../lost.html"
     }
 }
-
-
