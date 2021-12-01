@@ -13,6 +13,10 @@ var game = new Phaser.Game(config);
 
 function preload ()
 {
+    this.load.image('bottle', 'public/img/items/bottle.png');
+    this.load.image('kerosen', 'public/img/items/kerosen.png');
+    this.load.image('lighter', 'public/img/items/lighter.png');
+    this.load.image('tissue', 'public/img/items/tissue.png');
 }
 
 function create ()
