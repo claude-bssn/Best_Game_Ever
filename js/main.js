@@ -21,6 +21,10 @@ function preload ()
     this.load.image('pause', '../public/ath/pause.png');
     this.load.image('exit', '../public/ath/exit.png');
     this.load.image('itemBar', '../public/ath/itemBar.png');
+    this.load.image('kerosen', '../public/ath/kerosen.png');
+    this.load.image('lighter', '../public/ath/lighter.png');
+    this.load.image('tissue', '../public/ath/tissue.png');
+    this.load.image('bottle', '../public/ath/bottle.png');
 
 }
 
@@ -32,7 +36,13 @@ function create ()
     this.add.image(680, 50, 'start').setScale(0.35);
     this.add.image(680, 50, 'pause').setScale(0.35);
     this.add.image(750, 50, 'exit').setScale(0.35);
-    this.add.image(400, 550, 'itemBar').setScale(0.5);
+    this.add.image(400, 550, 'itemBar').setScale(0.47);
+    this.add.image(320, 550, 'lighter').setScale(0.06);
+    this.add.image(370, 548, 'tissue').setScale(0.06);
+    this.add.image(430, 550, 'bottle').setScale(0.06);
+    this.add.image(480, 550, 'kerosen').setScale(0.06);
+    
+
     
 }
 
