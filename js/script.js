@@ -21,18 +21,18 @@ function preload ()
 
 function create ()
 {
-    this.add.image(100,50,'bottle').setScale(0.2);
-    bottle = this.physics.add.group({
+    // this.add.image(100,50,'bottle').setScale(0.2);
+    bottle=this.physics.add.group({
         key: 'bottle',
         repeat: 5,
-        setXY: { x: 1200, y: 0, stepX: 70 }
+        setXY: { x: 100, y: 50, stepXY: 10}
     });
 
-//   bottle.children.iterate(function (child) {
+  bottle.children.iterate(function (child) {
 
-//       child.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8));
+      child.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8));
 
-//   });
+  });
 
 //   kerosen = this.physics.add.group({
 //       key: 'kerosen',
