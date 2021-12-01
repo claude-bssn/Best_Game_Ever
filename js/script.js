@@ -17,10 +17,6 @@ function preload ()
     this.load.image('kerosen', '../public/img/items/kerosen.png');
     this.load.image('lighter', '../public/img/items/lighter.png');
     this.load.image('tissue', '../public/img/items/tissue.png');
-    this.add.image('bottle', '../public/img/items/bottle.png');
-    this.add.image('kerosen', '../public/img/items/kerosen.png');
-    this.add.image('lighter', '../public/img/items/lighter.png');
-    this.add.image('tissue', '../public/img/items/tissue.png');
 }
 var score = 0;
 
@@ -30,9 +26,9 @@ var bombs;
 
 function create () {
    kerosen = this.physics.add.group({
-        key: "kerosen", // използваме изображението на звездата
-        repeat: 11, // създаваме 12 обекта (имаме създаден 1 автоматично)
-        setXY: { x: 12, y: 0, stepX: 70 } // първия обект ще бъде сложен на (12, 0), а всеки следващ ще промени хоризонталната си позиция със 70 пиксела
+        key: "kerosen", 
+        repeat: 11, 
+        setXY: { x: 12, y: 0, stepX: 70 } 
     });
 
     bottle.children.iterate(function (child) {
