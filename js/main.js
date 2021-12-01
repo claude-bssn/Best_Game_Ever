@@ -33,7 +33,7 @@ function preload ()
     })
     this.load.image('player', 'public/character/Idle(1).png');
     
-    map = generateMap(1920, 600);
+    map = generateMap(1920*2, 800);
     console.log(map);
 }
 
@@ -49,12 +49,12 @@ function create ()
     this.cursors = this.input.keyboard.createCursorKeys();
 
     this.player = this.physics.add.image(100, 100, 'player').setScale(0.1).setBounce(0.2);
-    this.player.setCollideWorldBounds(true);
+    this.player.setCollideWorldBounds(false);
     displayMap(map, this.physics, this.player);
 
     this.cameras.main.startFollow(this.player);
 
-    this.cameras.main.followOffset.set(-100, 0);
+    this.cameras.main.followOffset.set(0, 0);
     this.physics.add.collider(this.player);
 }
 
