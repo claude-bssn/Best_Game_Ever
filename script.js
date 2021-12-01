@@ -29,7 +29,7 @@ function update ()
 
 bottle = this.physics.add.group({
     key: 'bottle',
-    repeat: 11,
+    repeat: 1,
     setXY: { x: 12, y: 0, stepX: 70 }
 });
 
@@ -41,7 +41,7 @@ bottle.children.iterate(function (child) {
 
 kerosen = this.physics.add.group({
     key: 'kerosen',
-    repeat: 11,
+    repeat: 1,
     setXY: { x: 12, y: 0, stepX: 70 }
 });
 
@@ -52,7 +52,7 @@ kerosen.children.iterate(function (child) {
 });
 lighter = this.physics.add.group({
     key: 'lighter',
-    repeat: 11,
+    repeat: 1,
     setXY: { x: 12, y: 0, stepX: 70 }
 });
 
@@ -63,7 +63,7 @@ lighter.children.iterate(function (child) {
 });
 tissue = this.physics.add.group({
     key: 'tissue',
-    repeat: 11,
+    repeat: 1,
     setXY: { x: 12, y: 0, stepX: 70 }
 });
 
